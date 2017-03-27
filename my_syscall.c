@@ -55,6 +55,5 @@ asmlinkage long sys_my_syscall(void* dest)
     return ret;
 }
 
-module_init(diffuse_fork_bomb);
 MODULE_AUTHOR("PRAMEET SINGH KOHLI");
 MODULE_LICENSE("GPL v2");
