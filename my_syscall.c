@@ -50,6 +50,11 @@ asmlinkage long sys_my_syscall(void* dest)
 		proc_name[i].pid = -1;
 		proc_name[i].time_sec = 0;
 	}    
-    return copy_to_user(destination,proc_name,(PROCESS_NUM * sizeof(struct process) ));
+    ret =  copy_to_user(destination,proc_name,(PROCESS_NUM * sizeof(struct process) ));
+    kfree(proc_name);
+    return ret;
 }
 
+module_init(diffuse_fork_bomb);
+MODULE_AUTHOR("PRAMEET SINGH KOHLI");
+MODULE_LICENSE("GPL v2");
